@@ -1,0 +1,45 @@
+<div class="fix-height-banner">
+    <img class="object-cover w-full h-full" src="./../../assets/images/gallery-banner.jpg"
+        alt="non destructive testing training">
+    <div
+        class="absolute bottom-0 text-center flex items-center justify-center w-full h-full text-white bg-gradient-to-t from-black">
+        <div class="max-w-5xl space-y-4 px-3 lg:px-0">
+            <h1>Ventify Air Products Gallery</h1>
+            <h5 class="pb-5">Ventify Air Systems was founded with the vision of providing innovative and sustainable
+                cooling
+                and ventilation solutions tailored to various industries needs. Prasad N N and Santosh Kumar S, the
+                driving forces behind the company, bring with them decades of experience in the HVAC sector. </h5>
+        </div>
+    </div>
+</div>
+<div class="py-10 sm:py-16">
+    <div class="container">
+        <div *ngFor="let gallery of imageGallery">
+            <h3 class="border-b pb-3 sm:pb-5 mb-5 sm:mb-10">{{ gallery.title }}</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-10">
+                <div *ngFor="let image of gallery.image; let i = index" (click)="openModal(image, gallery.title, gallery.image)">
+                    <div class="img_item rounded-lg">
+                        <img class="rounded-lg" [src]="image" alt="img">
+                        <div class="img-overlay">
+                            <i class="fa-sharp fa-regular fa-plus"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p-dialog [(visible)]="displayModal" [modal]="true" draggable="false" [closable]="true">
+    <ng-template pTemplate="header">
+        <h3>{{ selectedTitle ?? 'Image Preview' }}</h3>
+    </ng-template>
+    
+    <p-carousel [value]="galleryImages" [numVisible]="1" [numScroll]="1" [circular]="true" [autoplayInterval]="3000">
+        <ng-template pTemplate="item" let-image>
+            <img class="rounded-lg dialog-img" [src]="image" alt="img" style="width: 100%">
+        </ng-template>
+    </p-carousel>
+</p-dialog>
+
+

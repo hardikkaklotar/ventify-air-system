@@ -1,0 +1,50 @@
+/* You can add global styles to this file, and also import other style files */
+@import "primeicons/primeicons.css";
+@import './assets/styles/color.scss';
+@import './assets/styles/layout.scss';
+@import './assets/styles/common.scss';
+@import './assets/styles/swiper.scss';
+@import './assets/styles/tailwind.scss';
+@import './assets/styles/primeng.scss';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.page_scroll {
+	background-color:var(--secondary);
+    color: var(--white);
+	width:40px;
+	height:40px;
+	font-size: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    flex-direction: column;
+	position: fixed;
+	right:15px;
+	bottom:15px;
+	cursor: pointer;
+	z-index: 999;
+    overflow: hidden;
+    .icon_one{
+        transform: translateY(10px);
+    }
+    .icon_two{
+        transform: translateY(20px);
+    }
+	&:hover{
+        .icon_one{
+            transition: all 0.5s;
+            transform: translateY(-20px);
+        }
+        .icon_two{
+            transition: all 0.5s;
+            transform: translateY(-10px);
+        }
+	}
+	@media screen and (max-width:575px) {
+		right:10px;
+		bottom:10px;
+	}
+}
+

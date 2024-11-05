@@ -1,0 +1,9 @@
+<div class="relative">
+    <app-header />
+    <router-outlet />
+    <a class="page_scroll" *ngIf="showBtn$ | async" (click)="pageScrollTop()">
+        <i class="fa-duotone fa-angles-up icon_one"></i>
+        <i class="fa-duotone fa-angles-up icon_two"></i>
+    </a>
+    <app-footer />
+</div>

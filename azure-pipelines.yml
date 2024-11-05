@@ -1,0 +1,49 @@
+parameters:
+- name: envName
+  displayName: Environment Name
+  type: string
+  default: test
+  values:
+  - test
+  - prod
+- name: azureSvc
+  default: MyFAA - Azure subscription 1 (9c26807f-d47f-4961-a991-68f1cc38bcb3)
+  
+# schedules:
+#   - cron: "0 23 * * Mon-Fri" # Cron expression for 5 PM UTC daily Mon-Fri
+#     displayName: Mon-Fri Daily 11 PM UTC Build
+#     branches:
+#       include:
+#         - develop
+trigger:
+  branches:
+    include:
+      - develop
+variables:
+  # Agent VM image name
+  - name: vmImageName
+    value: "ubuntu-latest"
+
+stages:
+  - stage: Build_VentifyAirSystem_Image
+    displayName: Build VentifyAirSystem Image
+    jobs:
+      - job: Build
+        displayName: Build VentifyAirSystem image
+        pool:
+          vmImage: $(vmImageName)
+        steps:
+          - task: Docker@2
+            displayName: Build and push an image to container registry
+            inputs:
+              command: buildAndPush
+              repository: VentifyAirSystem-${{ parameters.envName}}
+              dockerfile: "$(Build.SourcesDirectory)/Dockerfile"
+              containerRegistry: svc-cr-myfaa-prod
+              tags: |
+                latest
+          - task: AzureAppServiceManage@0
+            inputs:
+              azureSubscription: '${{ parameters.azureSvc}}'
+              Action: 'Restart Azure App Service'
+              WebAppName: 'app-ndt-${{ parameters.envName}}'

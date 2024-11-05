@@ -1,0 +1,60 @@
+<div class="py-10 sm:py-16 bg-slate-50">
+    <div class="container">
+        <div class="flex items-center gap-5 lg:gap-20 justify-between flex-col-reverse lg:flex-row">
+            <div class="ndt--content lg:w-1/2 space-y-2 sm:space-y-5">
+                <h1
+                    class="font-medium text-secondary after:content-[''] after:w-20 after:h-1 after:bg-primary after:rounded-lg after:left-0 after:bottom-0 after:block">
+                    {{ product?.title }} </h1>
+                <p class="font-normal">
+                    {{ product?.description }}
+                </p>
+            </div>
+            <div class="w-full lg:w-1/2">
+                <img class="object-cover w-full h-full rounded aspect-video" [src]="product?.image"
+                    alt="{{ product?.title }}" />
+            </div>
+        </div>
+    </div>
+</div>
+<div class="py-10 sm:py-16">
+    <div class="mb-5 sm:mb-9 md:mb-14">
+        <h3 class="text-secondary font-medium text-center">Specification of {{ product?.title }}</h3>
+        <span class="h-1 w-16 sm:w-28 lg:w-40 mt-2 bg-primary mx-auto block"></span>
+    </div>
+    <div class="container">
+        <p-table [value]="product?.tableData ?? []" styleClass="p-datatable-striped" [tableStyle]="{'min-width': '50rem'}">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th *ngFor="let col of product?.displayedColumns">{{ col | titlecase }}</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-item>
+                <tr>
+                    <td *ngFor="let col of product?.displayedColumns">
+                        {{ item['columns' + (getColumnIndex(col) + 1)] }}
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>
+<div class="py-10 sm:py-16 bg-gray-50">
+    <div class="mb-5 sm:mb-9 md:mb-14">
+        <h3 class="text-secondary font-medium text-center">Key Features of the {{ product?.title }}</h3>
+        <span class="h-1 w-16 sm:w-28 lg:w-40 mt-2 bg-primary mx-auto block"></span>
+    </div>
+    <div class="container">
+        <div class="grid grid-cols-4 gap-y-5 md:gap-10 items-center">
+            <div class="col-span-4 lg:col-span-2">
+                <img class="object-cover w-full h-full rounded aspect-video" [src]="product?.imageKeyFeatures"
+                    alt="{{ product?.title }}" />
+            </div>
+            <div class="col-span-4 lg:col-span-2 bg-primary bg-opacity-10 border p-5 sm:p-10 rounded-2xl">
+                <h4 class="mb-5 text-center font-medium">Key Features</h4>
+                <ul class="list-disc list-inside gap-x-5 gap-y-2 flex flex-wrap font-medium text-base">
+                    <li *ngFor="let feature of product?.keyFeatures">{{ feature }}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

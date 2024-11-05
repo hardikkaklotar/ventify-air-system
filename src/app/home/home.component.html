@@ -1,0 +1,149 @@
+<section>
+    <div class="swiper services_swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="relative cursor-grab text-center flex justify-center items-center">
+                    <img class="object-cover object-center slide--img w-full" [src]="ndtAdvImageSmall" [srcset]="ndtAdvImageSmall + ' 600w, ' +
+                      ndtAdvImageMedium + ' 1000w, ' +
+                      ndtAdvImageLarge + ' 2000w'" sizes="
+                      (max-width: 600px) 600px,
+                      (max-width: 1000px) 1000px,
+                      2000px
+                    " alt="slider-image" decoding="async" width="auto" height="auto" />
+                    <div
+                        class="slide--content px-10 lg:px-5 text-white text-center lg:text-start flex flex-col items-center lg:items-start space-y-3 sm:space-y-6 container">
+                        <h1 class="uppercase line-clamp-2 sm:line-clamp-none text-white font-bold">Welcome To Ventify
+                            Air
+                            Systems</h1>
+                        <h5 class="max-w-4xl line-clamp-6 sm:line-clamp-none">Ventify Air Systems is a dynamic company
+                            specializing in the trading of High Volume Low Speed (HVLS) fans, exhaust fans, industrial
+                            coolers, Air Distribution Products, Ventify Systems is
+                            dedicated to enhancing the comfort and efficiency of industrial and commercial spaces.</h5>
+                        <button class="btn-primary" (click)="scrollToServices(product)">Explore Our Product</button>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="relative cursor-grab text-center flex justify-center items-center">
+                    <img class="object-cover slide--img" src="./../../assets/images/banner-two.jpg" alt="slider-image"
+                        decoding="async" width="1920" height="600" />
+                    <div
+                        class="slide--content px-10 lg:px-5 text-white text-center lg:text-start flex flex-col items-center lg:items-start space-y-3 sm:space-y-6 container">
+                        <h2 class="uppercase line-clamp-2 sm:line-clamp-none text-white font-bold">Upgrade Your
+                            Ventilation Today!
+                        </h2>
+                        <h5 class="max-w-4xl line-clamp-6 sm:line-clamp-none">Ventify Systems: Your Trusted Partner for
+                            Technically Superior Air Distribution Products and Industrial Coolers in Bangalore!
+                        </h5>
+                        <button class="btn-primary" (click)="scrollToServices(product)">Explore Our Product</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+
+    <div class="py-6 bg-secondary text-white hidden md:block">
+        <div class="container">
+            <h6 class="text-center line-clamp-3">Ventify Air System is a premier supplier of high-quality HVAC products,
+                serving
+                the needs of residential, commercial, and industrial markets. We have been at
+                the forefront of providing innovative, energy-efficient solutions that empower
+                HVAC professionals to deliver outstanding performance and reliability.
+            </h6>
+        </div>
+    </div>
+
+    <div class=" py-10 sm:py-16 lg:py-24">
+        <div class="container">
+            <div class="flex flex-col space-y-5 md:space-y-10 lg:space-y-20">
+                <div class="flex items-center gap-5 lg:gap-10 justify-between flex-col-reverse lg:flex-row">
+                    <div class="lg:w-1/2 space-y-2 sm:space-y-5">
+                        <h3
+                            class="font-medium text-secondary after:content-[''] after:w-20 after:h-1 after:bg-primary after:rounded-lg after:left-0 after:bottom-0 after:block">
+                            Introduction </h3>
+                        <p class="font-normal">Ventify Air System is a premier supplier of high-quality HVAC products,
+                            serving
+                            the needs of residential, commercial, and industrial markets. We have been at
+                            the forefront of providing innovative, energy-efficient solutions that empower
+                            HVAC professionals to deliver outstanding performance and reliability.
+                        </p>
+                        <p>Our extensive product portfolio includes top-of-the-line heating and cooling
+                            systems, air purifiers, ventilation equipment, thermostats, ductwork, and much
+                            more. We partner with leading manufacturers to ensure that every product we
+                            offer meets the highest standards of quality and durability, helping our
+                            customers stay ahead in a competitive industry.
+                        </p>
+                        <button class="btn-primary" routerLink="about">About Us</button>
+                    </div>
+                    <div class="w-full lg:w-1/2">
+                        <img class="object-cover w-full h-full rounded aspect-video"
+                            src="./../../assets/images/gallery-banner.jpg" alt="serving customer" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="service_section py-10 sm:py-16 lg:pb-24">
+        <div class="container relative z-10 ">
+            <h3 class="uppercase text-white mb-10 text-center">Why Ventify?</h3>
+            <div class="grid grid-cols-6 gap-5 sm:gap-7">
+                @for (card of aerospaceServicesCard; track $index) {
+                <div
+                    class="col-span-6 sm:col-span-3 lg:col-span-2 p-8 text-center space-y-4 flex flex-col rounded-xl bg-white shadow">
+                    <img [src]="card.image" [alt]="card.title"
+                        class="w-14 h-14 sm:w-20 sm:h-20 lg:w-24 object-contain lg:h-24 mx-auto" loading="lazy" />
+                    <h4>{{card.title}}</h4>
+                    <p class="text-gray-700">
+                        {{ card.description }}</p>
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div #product class="py-10 sm:py-16 lg:pt-24">
+        <div class="container">
+            <h2 class="text-secondary text-center ">Our Product Categories</h2>
+            <div class="grid grid-cols-6 gap-5 sm:gap-7 my-8 md:my-14">
+                @for (product of products; track $index) {
+                    @if ($index < 6) {
+                        <div class="col-span-6 sm:col-span-3 lg:col-span-2">
+                            <div class="rounded-lg overflow-hidden flex flex-col bg-white shadow text-center border">
+                                <img (click)="viewProductDetails(product)" [src]="product.image" alt="Service"
+                                    class="cursor-pointer w-full object-cover object-center shadow-md aspect-4/3">
+                                <div class="p-3 sm:p-6 space-y-3">
+                                    <h5 class="text-pretty">{{ product.title }}</h5>
+                                    <a (click)="viewProductDetails(product)"
+                                        class="font-medium text-primary block w-max uppercase mx-auto hover:text-secondary transition-all cursor-pointer">
+                                        Know More <i class="fa-sharp ml-1 fa-regular fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+            <button routerLink="/products" class="btn-secondary mx-auto">
+                More Product
+            </button>
+        </div>
+    </div>
+
+    <div class="clip-path fix-background py-10 sm:py-16 lg:pt-24 bg-transparent">
+        <div class="container">
+            <div class="text-center space-y-5 max-w-6xl px-5 mx-auto text-white z-10 relative">
+                <div>
+                    <h3 class="uppercase text-white ">VENTIFY AIR SYSTEM</h3>
+                    <span class="h-1 w-16 sm:w-28 mt-2 bg-primary mx-auto block"></span>
+                </div>
+                <h5>Discover Ventify Air System's Comprehensive Range of Ventilation Products</h5>
+                <button class="btn-primary-small mx-auto" routerLink="/contact-us">Contact Us <i
+                        class="fa-light fa-phone"></i></button>
+            </div>
+        </div>
+    </div>
+</section>

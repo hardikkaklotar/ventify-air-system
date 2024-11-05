@@ -1,0 +1,68 @@
+<header class="sticky top-0 w-full block z-50 bg-white border-b">
+    <div class="bg-secondary py-2 hidden sm:block">
+        <div class="container">
+            <div class="header_tab flex items-center justify-between gap-3 md:gap-10">
+                <div class="flex items-center gap-3 md:gap-7">
+                    <a href="tel:+919728998427"
+                        class="flex gap-2 items-center hover:text-primary text-white transition-colors font-medium text-sm">
+                        <i class="fa-sharp fa-solid fa-phone text-primary text-lg"></i>
+                        +919728998427
+                    </a>
+                    <a href="mailto:ventifyairsystem@gmail.com"
+                        class="flex gap-2 items-center hover:text-primary text-white transition-colors font-medium text-sm">
+                        <i class="fa-solid fa-envelopes text-primary text-lg"></i>
+                        ventifyairsystem&#64;gmail.com
+                    </a>
+                </div>
+                <div class="flex items-center gap-3 links_block">
+                    <a href="#!" class="icons">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="#!" class="icons">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                    <a href="#!" class="icons">
+                        <i class="fa-brands fa-twitter"></i>
+                    </a>
+                    <a href="#!" class="icons">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="header_wrapper flex justify-between gap-4 items-center py-2" [class.active]="isSidebar">
+            <div class="header__logo">
+                <img routerLink="/" src="../.././../assets/images/icon/logo.png" alt="logo"
+                    class="object-contain w-32 sm:w-40 cursor-pointer">
+            </div>
+            <div class="flex items-start lg:items-center gap-3 sm:gap-5 text-secondary header_navigation"
+                [class.active]="isSidebar">
+                <div
+                    class="header_responsive mb-5 flex justify-between items-center w-full p-3 pe-4 sm:p-4 lg:hidden border-b border-gray-200">
+                    <img routerLink="/" src="../.././../assets/images/icon/logo.png" alt="logo"
+                    class="object-contain w-28 cursor-pointer">
+                    <a class="menu__close-icon cursor-pointer" (click)="closeSidebar()">
+                        <i class="fa-sharp text-2xl fa-light fa-xmark"></i>
+                    </a>
+                </div>
+                <a (click)="closeSidebar()" routerLink="/" routerLinkActive="active"
+                    [routerLinkActiveOptions]="{exact:true}" class="text-lg ml-4 links">Home</a>
+                <a (click)="closeSidebar()" routerLink="/about" routerLinkActive="active"
+                    class="text-lg ml-4 links">About</a>
+                <a (click)="closeSidebar()" routerLink="/products" routerLinkActive="active"
+                    class="text-lg ml-4 links">Products</a>
+                <a (click)="closeSidebar()" routerLink="/gallery" routerLinkActive="active"
+                    class="text-lg ml-4 links">gallery</a>
+            </div>
+            <div class="flex items-center gap-5" [class.active]="isSidebar">
+                <button class="btn-primary" routerLink="/contact-us">Contact Us </button>
+                <a class="menu__open-icon flex items-center cursor-pointer lg:hidden" (click)="openSidebar()">
+                    <i class="fa-sharp fa-2xl fa-light fa-bars mt-1 text-secondary"></i>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</header>

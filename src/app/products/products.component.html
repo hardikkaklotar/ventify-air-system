@@ -1,0 +1,48 @@
+<div class="fix-height-banner">
+    <img class="object-cover w-full h-full" src="./../../assets/images/ventilation-system.jpg"alt="non destructive testing training">
+    <div
+        class="absolute bottom-0 text-center flex items-center justify-center w-full h-full text-white bg-gradient-to-t from-black">
+        <div class="max-w-5xl space-y-4 px-3 lg:px-0">
+            <h1>Our Product Categories</h1>
+            <h5 class="pb-5">Ventify Air Systems was founded with the vision of providing innovative and sustainable
+                cooling
+                and ventilation solutions tailored to various industries needs. Prasad N N and Santosh Kumar S, the
+                driving forces behind the company, bring with them decades of experience in the HVAC sector.</h5>
+            </div>
+    </div>
+</div>
+
+<div class="py-10 sm:py-16 lg:py-24">
+    <div class="container">
+        <h2 class="text-secondary text-center">Innovative Solutions for Air Quality and Comfort</h2>
+        <div class="grid grid-cols-6 gap-5 sm:gap-7 mt-8 md:mt-14">
+            @for (product of products; track $index) {
+            <div  class="col-span-6 sm:col-span-3 lg:col-span-2">
+                <div class="rounded-lg overflow-hidden flex flex-col bg-white shadow text-center border">
+                    <img (click)="viewProductDetails(product)" [src]="product.image" alt="Service" class="cursor-pointer w-full object-cover object-center shadow-md aspect-4/3">
+                    <div class="p-3 sm:p-6 space-y-3">
+                        <h5 class="text-pretty">{{ product.title }}</h5>
+                        <a (click)="viewProductDetails(product)" class="font-medium text-primary block w-max uppercase mx-auto hover:text-secondary transition-all cursor-pointer">
+                            Know More <i class="fa-sharp ml-1 fa-regular fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="clip-path fix-background py-10 sm:py-16 lg:pt-24 bg-transparent">
+    <div class="container">
+        <div class="text-center space-y-5 max-w-6xl px-5 mx-auto text-white z-10 relative">
+            <div>
+                <h3 class="uppercase text-white ">VENTIFY AIR SYSTEM</h3>
+                <span class="h-1 w-16 sm:w-28 mt-2 bg-primary mx-auto block"></span>
+            </div>
+            <h5>Discover Ventify Air System's Comprehensive Range of Ventilation Products</h5>
+            <button class="btn-primary-small mx-auto" routerLink="/contact-us">Contact Us <i
+                    class="fa-light fa-phone"></i></button>
+        </div>
+    </div>
+</div>

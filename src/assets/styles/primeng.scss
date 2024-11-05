@@ -1,0 +1,83 @@
+    .p-component-overlay {
+        backdrop-filter: blur(3px);
+
+        .p-dialog {
+            border-radius: 10px;
+            max-width: 900px;
+            margin: 10px;
+            &-header {
+                border-top-right-radius: 10px;
+                border-top-left-radius: 10px;
+                @media screen and (max-width:575px) {
+                    padding: 15px;
+                }
+            }
+
+            &-content {
+                border-bottom-right-radius: 10px;
+                border-bottom-left-radius: 10px;
+                @media screen and (max-width:575px) {
+                    padding: 15px;
+                    padding-top: 0px;
+                }
+               
+                .dialog-img {
+                    height: 60vh;
+                    width: 100%;
+                    object-fit: cover;
+
+                    @media screen and (max-width:575px) {
+                        height: 50vh;
+                    }
+                }
+            }
+        }
+    }
+
+    .p-carousel-horizontal {
+        border-radius: 10px;
+        overflow: hidden !important;
+    }
+
+    .p-carousel-prev,
+    .p-carousel-next {
+        position: absolute !important;
+        border-radius: 100%;
+        background: var(--primary) !important;
+        color: var(--white) !important;
+        z-index: 10;
+        width: 40px !important;
+        height: 40px !important;
+
+        &:focus {
+            box-shadow: unset !important;
+        }
+    }
+
+    .p-carousel-prev {
+        left: 0;
+    }
+
+    .p-carousel-next {
+        right: 0;
+    }
+
+    .p-carousel-indicators {
+        position: absolute;
+        bottom: 30px;
+        z-index: 10;
+        left: 50%;
+        transform: translateX(-50%);
+        @media screen and (max-width:575px) {
+            bottom: 10px;
+        }
+        button {
+            width: 10px !important;
+            height: 10px !important;
+            border-radius: 100% !important;
+
+            &:focus {
+                box-shadow: unset !important;
+            }
+        }
+    }
