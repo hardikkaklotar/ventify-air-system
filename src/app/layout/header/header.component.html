@@ -37,7 +37,7 @@
                 <img routerLink="/" src="../.././../assets/images/icon/logo.png" alt="logo"
                     class="object-contain w-32 sm:w-40 cursor-pointer">
             </div>
-            <div class="flex items-start lg:items-center gap-3 sm:gap-5 text-secondary header_navigation"
+            <div class="flex items-start lg:items-center gap-3 lg:gap-8 text-secondary header_navigation"
                 [class.active]="isSidebar">
                 <div
                     class="header_responsive mb-5 flex justify-between items-center w-full p-3 pe-4 sm:p-4 lg:hidden border-b border-gray-200">
@@ -48,13 +48,13 @@
                     </a>
                 </div>
                 <a (click)="closeSidebar()" routerLink="/" routerLinkActive="active"
-                    [routerLinkActiveOptions]="{exact:true}" class="text-lg ml-4 links">Home</a>
+                    [routerLinkActiveOptions]="{exact:true}" class="text-lg ml-4 lg:ml-0 links">Home</a>
                 <a (click)="closeSidebar()" routerLink="/about" routerLinkActive="active"
-                    class="text-lg ml-4 links">About</a>
+                    class="text-lg ml-4 lg:ml-0 links">About</a>
                 <a (click)="closeSidebar()" routerLink="/products" routerLinkActive="active"
-                    class="text-lg ml-4 links">Products</a>
+                    class="text-lg ml-4 lg:ml-0 links">Products</a>
                 <a (click)="closeSidebar()" routerLink="/gallery" routerLinkActive="active"
-                    class="text-lg ml-4 links">gallery</a>
+                    class="text-lg ml-4 lg:ml-0 links">gallery</a>
             </div>
             <div class="flex items-center gap-5" [class.active]="isSidebar">
                 <button class="btn-primary" routerLink="/contact-us">Contact Us </button>
