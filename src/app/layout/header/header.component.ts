@@ -10,9 +10,11 @@ import { RouterModule } from '@angular/router';
 })
 export class HeaderComponent {
   isSidebar: boolean = false;
+
   openSidebar() {
     this.isSidebar = !this.isSidebar;
   }
+  
   closeSidebar() {
     this.isSidebar = false;
   }

@@ -33,19 +33,19 @@
     }
 
     .btn-primary {
-        @apply py-2 px-4 rounded-md font-medium bg-primary border-primary border text-white text-sm md:text-base flex items-center gap-2 justify-center transition-all hover:border-secondary hover:bg-secondary;
+        @apply py-1.5 sm:py-2 px-2 sm:px-4 rounded-md font-medium bg-primary border-primary border text-white text-sm md:text-base flex items-center gap-2 justify-center transition-all hover:border-secondary hover:bg-secondary;
     }
 
     .btn-primary-small {
-        @apply py-1.5 px-3 rounded-md max-w-max font-medium bg-primary border-primary border text-white text-sm flex items-center gap-2 justify-center transition-all hover:border-secondary hover:bg-secondary;
+        @apply py-1.5 px-2 sm:px-3 rounded-md max-w-max font-medium bg-primary border-primary border text-white text-sm flex items-center gap-2 justify-center transition-all hover:border-secondary hover:bg-secondary;
     }
 
     .btn-outline-primary {
-        @apply py-2 px-4 rounded-md font-medium transition-colors text-primary hover:bg-primary hover:text-white border-primary border text-sm md:text-base flex items-center gap-2 justify-center;
+        @apply py-1.5 sm:py-2 px-2 sm:px-4 rounded-md font-medium transition-colors text-primary hover:bg-primary hover:text-white border-primary border text-sm md:text-base flex items-center gap-2 justify-center;
     }
 
     .btn-secondary {
-        @apply py-2 px-4 rounded-md font-medium bg-secondary border-secondary border text-white text-sm md:text-base flex items-center gap-2 justify-center transition-all hover:text-secondary hover:bg-white;
+        @apply py-1.5 sm:py-2 px-2 sm:px-4 rounded-md font-medium bg-secondary border-secondary border text-white text-sm md:text-base flex items-center gap-2 justify-center transition-all hover:text-secondary hover:bg-white;
     }
 
 }
