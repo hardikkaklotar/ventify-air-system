@@ -3,13 +3,17 @@ import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import emailjs from 'emailjs-com';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
+
 
 
 @Component({
   selector: 'app-contact-us',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterModule],
-  templateUrl: './contact-us.component.html'
+  imports: [CommonModule, ReactiveFormsModule, RouterModule, ToastModule],
+  templateUrl: './contact-us.component.html',
+  providers: [MessageService]
 })
 export class ContactUsComponent {
   userForm!: FormGroup;
@@ -18,15 +22,16 @@ export class ContactUsComponent {
   submitted = false;  
   constructor(
     private formBuilder: FormBuilder,
+    private messageService: MessageService
   ){}
 
   ngOnInit() {
     this.userForm = this.formBuilder.group({
-      name: ['', Validators.required],
+      name: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
       to_name: ['admin'],
-      email: ['', [Validators.required, Validators.email]],
+      email: ['', [Validators.required, Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/)]],
       phone: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]],
-      message: ['', Validators.required],
+      message: ['', [Validators.required, Validators.minLength(10)]],
     });
     window.scroll({
       top: 0,
@@ -43,6 +48,7 @@ export class ContactUsComponent {
     } else {
       emailjs.init('quGx09KTSLnH8HrZ3');
       try {
+        this.messageService.add({ severity: 'success', summary: 'Success', detail: 'From submitted' });
         let response = await emailjs.send("service_nb4718u", "template_fc7fcbn", {
           name: this.userForm.value.name,
           to_name: this.userForm.value.to_name,
@@ -57,7 +63,7 @@ export class ContactUsComponent {
         this.userForm.reset();
         this.submitted = false;
       } catch (error) {
-        console.log ('Failed to submit form. Please try again.')
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Failed to submit form. Please try again' });
       }
     }
   }
